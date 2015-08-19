@@ -3,11 +3,22 @@
   <head>
     <meta charset='utf-8'>
     <link rel="stylesheet" href="css/style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body>
-      <form method="post" action="/ideas">
-          <input type="text" name="idea" value="idea goes here">
-          <input type="submit" value="Submit">
+      <form class="post-form" method="post" action="/ideas">
+          <input class="idea" type="text" name="idea" value="idea goes here">
+          <input class="submit-button" type="submit" value="Submit">
+          <div class="reply" > </div>
       </form>
+      <script>
+      var addToFeed=function(e) {
+        e.preventDefault();
+        var myIdea=$(".idea").val();
+        $.post( "/ideas", { idea:myIdea } );
+        $(".reply").text("submitted!");
+      }
+      $(".post-form").on("submit",addToFeed)
+      </script>
   </body>
 </html>
