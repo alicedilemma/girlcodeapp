@@ -11,15 +11,15 @@
   <div class="idea-box">
   </div>
   <div class="link-bar">
-  <a href="feed.html">read the feed</a>
-  <a href="post.html">post something</a>
-  <a href="index.html">home</a>
-</div>
+    <a href="feed.html">read the feed</a>
+    <a href="post.html">post something</a>
+    <a href="index.html">home</a>
+  </div>
   <script>
   //Hello! This is the start of the JavaScript.
 
   var addIdea = function(idea) {
-    var ideaElement = $('<h2>' + idea + '</h2>');
+    var ideaElement = $('<h2>' + idea.text + "   " + new Date(idea.time).toLocaleString() + '</h2>');
     $(".idea-box").append(ideaElement);
 
   }
